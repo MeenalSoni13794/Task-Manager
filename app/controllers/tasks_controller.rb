@@ -1,7 +1,10 @@
 class TasksController < ApplicationController
-  def index
-    tasks = Task.all
-    render json: tasks
+	def index
+    @tasks = if Task.feature_enabled?(:new_task_feature)
+               Task.all.order(created_at: :desc)
+             else
+               Task.all
+             end
   end
 
   def create
