@@ -61,3 +61,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+gem 'flipper'
+gem 'flipper-active_record'  # Store feature flags in the database
+gem 'flipper-ui'             # Web UI for managing flags
+
